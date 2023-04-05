@@ -35,7 +35,12 @@ function build(opts = {}) {
     const { redis } = app
     let key = request.params.key
     let result = await redis.get(key)
-    return { msg: result || 'Key not found' }
+
+    if (result == null) {
+      throw { statusCode: 204, msg: 'Key not found' }
+    } else {
+      return { msg: result }
+    }
   })
 
   return app
