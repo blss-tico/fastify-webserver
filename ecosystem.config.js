@@ -3,6 +3,14 @@
  * @author Bruno Leonardo - Tico)
  */
 
+// Commands:
+// pm2 start ecosystem.config.js --env production
+// pm2 restart ecosystem.config.js --env production
+// pm2 stop ecosystem.config.js --env production
+// pm2 list ecosystem.config.js --env production
+// pm2 logs ecosystem.config.js --env production
+// pm2 monit
+
 module.exports = {
   apps: [{
     name: "server",
