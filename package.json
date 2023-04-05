@@ -1,0 +1,36 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "fastify": "^4.15.0"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "pino-pretty": "^10.0.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "fastify-webserver",
+  "description": "<!--    <<< Author notes: Header of the Document >>>    It's only for study purposes.  -->",
+  "version": "1.0.0",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blss-tico/fastify-webserver.git"
+  },
+  "keywords": [
+    "fastify",
+    "node",
+    "nodejs",
+    "webserver"
+  ],
+  "author": "Bruno Leonardo - Tico)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blss-tico/fastify-webserver/issues"
+  },
+  "homepage": "https://github.com/blss-tico/fastify-webserver#readme"
+}
