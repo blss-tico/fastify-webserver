@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@fastify/helmet": "^10.1.0",
+    "@fastify/redis": "^6.1.0",
     "dotenv": "^16.0.3",
     "fastify": "^4.15.0"
   },

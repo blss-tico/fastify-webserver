@@ -16,9 +16,10 @@ const server = require('./src/app')({
   }
 })
 
-server.listen({ port: process.env.PORT }, (err, address) => {
+server.listen({ port: process.env.PORT, host: process.env.HOST }, (err, address) => {
   if (err) {
     server.log.error(err)
     process.exit(1)
   }
+  server.log.info(`server listenning on ${address}`)
 })
