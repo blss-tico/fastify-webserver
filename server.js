@@ -1,5 +1,5 @@
 /**
- * @file Fastify Web Server entry point
+ * @file Fastify Web Server, entry point
  * @author Bruno Leonardo - Tico)
  * @version 1.0.0
  * @license MIT
