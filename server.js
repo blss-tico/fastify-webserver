@@ -8,7 +8,7 @@
 
 'use strict'
 
-require('dotenv').config()
+require('dotenv').config({ path: '.env' })
 
 const server = require('./src/app')({
   logger: {
@@ -16,7 +16,7 @@ const server = require('./src/app')({
   }
 })
 
-server.listen({ port: process.env.PORT, host: process.env.HOST }, (err, address) => {
+server.listen({ port: process.env.SRV_PORT, host: process.env.SRV_HOST }, (err, address) => {
   if (err) {
     server.log.error(err)
     process.exit(1)
