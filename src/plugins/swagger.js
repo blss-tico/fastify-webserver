@@ -3,8 +3,9 @@ const fp = require('fastify-plugin')
 const configuration = require('../config/configuration')
 
 module.exports = fp(async function (fastify, opts) {
-  fastify.register(require('@fastify/swagger'), {
-    routePrefix: '/swagger',
+  await fastify.register(require('@fastify/swagger'), {})
+  await fastify.register(require('@fastify/swagger-ui'), {
+    routePrefix: '/documentation',
     swagger: {
       info: {
         title: 'Fastify Web Server',
@@ -19,7 +20,16 @@ module.exports = fp(async function (fastify, opts) {
       schemes: ['http'],
       consumes: ['application/json'],
       produces: ['application/json'],
+      tags: [
+        { name: 'cards', description: 'Cards related end-points' },
+      ],
     },
     exposeRoute: true
+  })
+
+  // Executes Swagger
+  fastify.ready(err => {
+    if (err) throw err
+    fastify.swagger()
   })
 })

@@ -16,19 +16,25 @@ const fastifyRedis = require('@fastify/redis')
 function build(opts = {}) {
   const app = fastify(opts)
 
-  // plugins register
-  app.register(fastifyRedis, { host: '127.0.0.1', port: 6379 })
+  // Plugins
+  // Redis
+  app.register(fastifyRedis, { 
+    host: '127.0.0.1', port: 6379 
+  })
 
+  // Autoload /plugins
   app.register(AutoLoad, {
     dir: path.join(__dirname, 'plugins'),
     options: Object.assign({}, opts)
   })
 
+  // Autoload /routes
   app.register(AutoLoad, {
     dir: path.join(__dirname, 'routes'),
     options: Object.assign({}, opts)
   })
 
+  // Routes
   // set redis key
   app.get('/set/:key', async (request, reply) => {
     const { redis } = app
