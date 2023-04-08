@@ -5,6 +5,7 @@
     "@fastify/redis": "^6.1.0",
     "@fastify/swagger": "^8.3.1",
     "@fastify/swagger-ui": "^1.7.0",
+    "@fastify/under-pressure": "^8.2.0",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "fastify": "^4.15.0",
