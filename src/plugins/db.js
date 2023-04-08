@@ -1,3 +1,13 @@
+/**
+ * @file Plugin to build the database connection with MySQL
+ * @author Bruno Leonardo - Tico)
+ * @version 1.0.0
+ * @license MIT
+ * 
+ */
+
+ 'use strict'
+
 const fp = require('fastify-plugin')
 const mysql = require('mysql2');
 
@@ -9,6 +19,7 @@ module.exports = fp(function (fastify, opts, done) {
     port: configuration.databasePort,
     user: configuration.databaseUser,
     database: configuration.databaseName,
+    password: configuration.databasePassword,
     waitForConnections: configuration.databaseWaitForConnections,
     connectionLimit: configuration.databaseConnetionLimit,
     maxIdle: configuration.databaseMaxIdle,

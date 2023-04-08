@@ -1,8 +1,19 @@
-const cardsDAOPlugin = require('../../services/cardsDAO');
+/**
+ * @file Routes for cards, CRUD
+ * @author Bruno Leonardo - Tico)
+ * @version 1.0.0
+ * @license MIT
+ * 
+ */
+
+'use strict'
+
+const cardsDAOPlugin = require('../../services/cardsDAO')
+const configuration = require('../../config/configuration')
 
 module.exports = async function (fastify, opts) {
 
-  fastify.register(cardsDAOPlugin);
+  fastify.register(cardsDAOPlugin)
 
   fastify.get('/', {
     schema: {
@@ -54,9 +65,20 @@ module.exports = async function (fastify, opts) {
       }
     }
   }, async (request, reply) => {
-    const { id } = request.params;
-    const card = await fastify.cardsDAO.getCardById(id);
-    return card;
+    const { id } = request.params
+    const { redis } = fastify
+
+    let card = null
+    card = await redis.get('card' + id)
+    if (card == null) {
+      card = await fastify.cardsDAO.getCardById(id);
+      await redis.set('card' + id, JSON.stringify(card), 'ex', 10)
+      if (configuration.DEBUG_MODE) { console.log('mysql', card) }
+      return card
+    } else {
+      if (configuration.DEBUG_MODE) { console.log('redis', card) }
+      return JSON.parse(card)
+    }
   })
 
   fastify.post('/', {

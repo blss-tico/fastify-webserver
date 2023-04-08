@@ -1,3 +1,15 @@
+
+/**
+ * @file Plugin to build API documentation with swagger, 
+ *   The route to see the API is http://ip:port/documentation 
+ * @author Bruno Leonardo - Tico)
+ * @version 1.0.0
+ * @license MIT
+ * 
+ */
+
+'use strict'
+
 const fp = require('fastify-plugin')
 
 const configuration = require('../config/configuration')

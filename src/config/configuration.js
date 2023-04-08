@@ -1,4 +1,16 @@
-require('dotenv').config({ path: __dirname + '../../.env' })
+/**
+ * @file Module to read configuration variables to application
+ *   All variables are inside the .env file. 
+ * @author Bruno Leonardo - Tico)
+ * @version 1.0.0
+ * @license MIT
+ * 
+ */
+
+ 'use strict'
+
+let dte = require('dotenv').config({ path: __dirname + '/.env' })
+if (dte.error) { throw dte.error }
 
 function loadEnvironmentVariable(keyname) {
   const envVar = process.env[keyname]
@@ -15,6 +27,7 @@ module.exports = {
   databasePort: loadEnvironmentVariable('DB_PORT'),
   databaseUser: loadEnvironmentVariable('DB_USER'),
   databaseName: loadEnvironmentVariable('DB_NAME'),
+  databasePassword: loadEnvironmentVariable('DB_PASS'),
   databaseWaitForConnections: loadEnvironmentVariable('DB_WAIT_FOR_CONNECTIONS'),
   databaseConnectionLimit: loadEnvironmentVariable('DB_CONNECTION_LIMIT'),
   databaseMaxIdle: loadEnvironmentVariable('DB_MAX_IDLE'),
@@ -22,4 +35,7 @@ module.exports = {
   databaseQueueLimit: loadEnvironmentVariable('DB_QUEUE_LIMIT'),    
   swaggerHost: loadEnvironmentVariable('SWG_HOST'),
   swaggerPort: loadEnvironmentVariable('SWG_PORT'),
+  redisHost: loadEnvironmentVariable('RD_HOST'),
+  redisPort: loadEnvironmentVariable('RD_PORT'),
+  DEBUG_MODE: false,
 }

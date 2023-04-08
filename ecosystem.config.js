@@ -1,9 +1,10 @@
 /**
- * @file Ecosystem config file for PM2
+ * @file application config file for PM2
  * @author Bruno Leonardo - Tico)
  */
 
 // Commands:
+// pm2 start ecosystem.config.js --env production --watch (hot reload)
 // pm2 start ecosystem.config.js --env production
 // pm2 restart ecosystem.config.js --env production
 // pm2 stop ecosystem.config.js --env production

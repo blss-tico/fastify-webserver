@@ -1,0 +1,30 @@
+# Test routes using curl in terminal
+
+# get all cards
+curl -X 'GET' 'http://127.0.0.1:3000/cards/' -H 'accept: application/json'
+
+# post new card
+curl -X 'POST' 'http://127.0.0.1:3000/cards/' 
+  -H 'accept: application/json' 
+  -H 'Content-Type: application/json'
+  -d '{
+    "category": "2",
+    "title": "Green Duend",
+    "price": 87
+  }'
+
+# get card by id
+curl -X 'GET' 'http://127.0.0.1:3000/cards/2' -H 'accept: application/json'
+
+# update card by id
+curl -X 'PUT' 'http://127.0.0.1:3000/cards/2' 
+  -H 'accept: application/json'
+  -H 'Content-Type: application/json'
+  -d '{
+    "category": "2",
+    "title": "Lex Luthor",
+    "price": 80
+  }'
+
+# delete card by id
+curl -X 'DELETE' 'http://127.0.0.1:3000/cards/2' -H 'accept: application/json'
