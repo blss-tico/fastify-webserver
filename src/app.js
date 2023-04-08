@@ -12,7 +12,7 @@ const path = require('path')
 const fastify = require('fastify')
 const AutoLoad = require('@fastify/autoload')
 const helmet = require('@fastify/helmet')
-const underPressure = require('@fastify/under-pressure')
+// const underPressure = require('@fastify/under-pressure')
 
 function build(opts = {}) {
   const app = fastify(opts)
@@ -23,13 +23,15 @@ function build(opts = {}) {
   })
 
   // DDOS avoid plugin
+  /*
   app.register(underPressure, {
     maxHeapUsedBytes: 100000000,
     maxRssBytes: 100000000,
-    maxEventLoopDelay: 1000,
+    maxEventLoopDelay: 5000,
     message: 'Under pressure!',
-    retryAfter: 50,
+    retryAfter: 100,
   })
+  */
 
   // Autoload /plugins
   app.register(AutoLoad, {

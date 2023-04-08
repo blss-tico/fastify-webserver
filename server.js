@@ -12,7 +12,8 @@ const configuration = require('./src/config/configuration')
 
 const server = require('./src/app')({
   logger: {
-    level: 'info'
+    level: 'info',
+    file: './src/logs/server.log',
   }
 })
 
@@ -22,4 +23,5 @@ server.listen({ port: configuration.serverPort, host: configuration.serverHost }
     process.exit(1)
   }
   server.log.info(`server listenning on ${address}`)
+  console.log(`server listenning on ${address}`)
 })
