@@ -11,9 +11,16 @@
 const path = require('path')
 const fastify = require('fastify')
 const AutoLoad = require('@fastify/autoload')
+const helmet = require('@fastify/helmet')
 
 function build(opts = {}) {
   const app = fastify(opts)
+
+  // Security plugin
+  app.register(
+    helmet,
+    { contentSecurityPolicy: false }
+  )
 
   // Autoload /plugins
   app.register(AutoLoad, {
