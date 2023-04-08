@@ -18,7 +18,7 @@ _A Fastify framework web server example for students._
 - **Clone repository**: git clone https://github.com/blss-tico/fastify-webserver
 - **Install packages**: npm install
 - **Start**: You can start the app with some ways: 
-  <p>**In terminal:**</p> 
+  <p><b>In terminal:</b></p> 
   <p>pm2 start ecosystem.config.js --env production (for production) </p>
   <p>pm2 start ecosystem.config.js --env development --watch (development with hot reload) </p> 
   <p>node server.js (only with nodejs) </p>
