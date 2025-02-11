@@ -1,6 +1,7 @@
 -- sql script
+
 -- connect to mysql
-mysql -u administrator -p
+# mysql -u administrator -p
 
 -- create a new database
 CREATE DATABASE testdb;
