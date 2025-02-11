@@ -24,6 +24,6 @@ module.exports = async function (fastify, opts) {
       }
     }
   }, (request, reply) => {
-    reply.send({ msg: "The Application is Up and Running" })
+    reply.send({ msg: "application is up and running" })
   })
 }
