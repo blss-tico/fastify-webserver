@@ -10,6 +10,6 @@
 
 module.exports = async function (fastify, opts) {
   fastify.get('/', async function (request, reply) {
-    return { msg: "Hello World" }
-  })
+    return { msg: "server running" }
+  });
 }
